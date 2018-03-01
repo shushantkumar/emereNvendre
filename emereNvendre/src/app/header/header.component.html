@@ -8,9 +8,36 @@
       <b style="padding-left:10px;"> emereNvendre </b>
       <small> NITK's Sharing Platform</small>
       
-        <button class="btn btn-primary" style="float:right;margin-right:35px;margin-top:12px;padding:10px 20px 10px 20px;font-size:20px;font-family:Montserrat" type="">Login</button>
-     
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float:right;margin-right:35px;margin-top:12px;padding:10px 20px 10px 20px;font-size:20px;font-family:Montserrat" type="">Login</button>
+
+
+        
     </h1>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="container">
+                    <div class="signIn">
+                      <img src="../../assets/avatar.png" class="avatar">
+                      <h1>Login</h1>
+                      <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
   </div>
 </header>
 
