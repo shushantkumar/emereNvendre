@@ -11,6 +11,10 @@ import { HeaderComponent } from './header/header.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './dashboard/about/about.component';
+import { PostComponent } from './dashboard/post/post.component';
+import { RequestComponent } from './dashboard/request/request.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -21,7 +25,10 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     SignInComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    PostComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,

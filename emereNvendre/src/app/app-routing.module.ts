@@ -4,6 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { ProdListComponent } from './prod-list/prod-list.component';
 import { SignInComponent} from './sign-in/sign-in.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AboutComponent } from './dashboard/about/about.component';
+import { PostComponent } from './dashboard/post/post.component';
+import { RequestComponent } from './dashboard/request/request.component';
 
 const routes: Routes = [
 
@@ -14,6 +17,18 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'post',
+    component: AboutComponent
+  },
+  {
+    path: 'request',
+    component: AboutComponent
   },
   {
     path: 'product',
