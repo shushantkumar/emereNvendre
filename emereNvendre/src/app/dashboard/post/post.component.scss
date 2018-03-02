@@ -1,5 +1,19 @@
 .card {
     
-    box-shadow: 4px 4px 8px 8px rgba(0,0,0,0.5);
-    transition: 0.3s;
-}
+        box-shadow: 4px 4px 8px 8px rgba(0,0,0,0.5);
+        transition: 0.3s;
+        margin:40px;
+    }
+    
+    input[type="file"] {
+        display: none;
+    }
+    
+    .custom-file-upload {
+        border: 1px solid rgb(39, 39, 39);
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        background-color:#cc33ff;
+    
+    }

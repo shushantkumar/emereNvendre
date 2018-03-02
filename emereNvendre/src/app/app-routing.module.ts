@@ -24,11 +24,11 @@ const routes: Routes = [
   },
   {
     path: 'post',
-    component: AboutComponent
+    component: PostComponent
   },
   {
     path: 'request',
-    component: AboutComponent
+    component: RequestComponent
   },
   {
     path: 'product',
