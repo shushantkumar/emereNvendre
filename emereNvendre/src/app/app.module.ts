@@ -15,6 +15,7 @@ import { AboutComponent } from './dashboard/about/about.component';
 import { PostComponent } from './dashboard/post/post.component';
 import { RequestComponent } from './dashboard/request/request.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { AllpostsComponent } from './allposts/allposts.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     HomeComponent,
     AboutComponent,
     PostComponent,
-    RequestComponent
+    RequestComponent,
+    AllpostsComponent,
   ],
   imports: [
     BrowserModule,
