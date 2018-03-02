@@ -8,6 +8,7 @@ import { AllpostsComponent } from './allposts/allposts.component';
 import { AboutComponent } from './dashboard/about/about.component';
 import { PostComponent } from './dashboard/post/post.component';
 import { RequestComponent } from './dashboard/request/request.component';
+import { AllrequestsComponent } from './allrequests/allrequests.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'allposts',
     component: AllpostsComponent
+  },
+  {
+    path: 'allrequests',
+    component: AllrequestsComponent
   },
   {
     path: 'dashboard',
