@@ -31,7 +31,7 @@ export class AllpostsComponent implements OnInit {
   getAllPosts(){
     console.log("Something is going on!");
     this.allpostsService.getAllPosts().subscribe(
-      (res) => console.log(res.products[0]),
+      (res) => console.log(res.products),
       (err) => console.log(err),
       () => console.log('done!')
   );
