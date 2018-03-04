@@ -18,6 +18,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { AllpostsComponent } from './allposts/allposts.component';
 import { AllrequestsComponent } from './allrequests/allrequests.component';
 
+import { AllpostsService } from './allposts/allposts.service';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import { HttpModule } from '@angular/http'; 
+
 
 @NgModule({
   declarations: [
@@ -37,9 +41,13 @@ import { AllrequestsComponent } from './allrequests/allrequests.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AllpostsService,
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
