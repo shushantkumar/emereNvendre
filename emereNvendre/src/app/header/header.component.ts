@@ -13,10 +13,13 @@ import { parseCookieValue } from '@angular/common/src/cookie';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  cookieValue = '';
+  cookieENVuserID = '';
+  cookieENVtoken = '';
+
 
   constructor(
-    private headerService:HeaderService
+    private headerService:HeaderService,
+    private cookieService: CookieService
   ) { }
 
   ngOnInit() {
@@ -24,21 +27,27 @@ export class HeaderComponent implements OnInit {
 
   LoginEvent(event){
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
     let username = event.target.elements[0].value;
     let password = event.target.elements[1].value;
     let data={
       "emailID": username,
       "password": password
     };
-    console.log(username,password);
+    // console.log(username,password);
 
     
     this.headerService.LoginEvent(data)
       .subscribe(
         (response) => {
         console.log(response);
-          
+        this.cookieService.set( 'ENVuserID', response.userID );
+        this.cookieService.set('ENVtoken',response.token);
+
+        this.cookieENVuserID = this.cookieService.get('ENVuserID');
+        this.cookieENVtoken = this.cookieService.get('ENVtoken');
+
+        console.log(this.cookieENVuserID,this.cookieENVtoken);
       
       },
       (err) => console.log(err),

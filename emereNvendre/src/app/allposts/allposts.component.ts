@@ -42,8 +42,7 @@ export class AllpostsComponent implements OnInit {
         //   for( y in z) {
         //     console.log(z[y]);
         // }}
-        console.log("https://agile-dawn-35104.herokuapp.com/"+response[0].productImage);
-          
+                  
         }, 
       (err) => console.log(err),
       () => console.log('done!')
