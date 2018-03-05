@@ -6,12 +6,12 @@
 
   <div *ngFor="let meta of allpostsdata;" class="col-lg-4 col-sm-4 col-md-4 col-xs-12" style="margin-top:10px">
     <div class="card" style="height:400px;padding:20px;">
-        <img class="card-img-top" src="../../assets/herc.png" alt="Avatar" style="width:100%">
+        <img class="card-img-top" src="https://agile-dawn-35104.herokuapp.com/{{meta.productImage}}" alt="Avatar" style="max-width:100%;max-height:25vh;padding-left:80px">
         <div class="card-body">
           <h4 style="padding:10px"><b>Category</b></h4> 
           <p><b>{{meta.name}}</b></p> 
           <p>Price {{meta.price}}</p> 
-          <p>{{meta.description}}</p> 
+          <!-- <p>{{meta.description}}</p>  -->
           <a href="#" class="btn btn-primary">See Details</a>
         </div>
     </div>

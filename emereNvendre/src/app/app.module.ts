@@ -20,8 +20,10 @@ import { AllrequestsComponent } from './allrequests/allrequests.component';
 
 import { AllpostsService } from './allposts/allposts.service';
 import { AllrequestsService } from './allrequests/allrequests.service';
+import {HeaderService} from './header/header.service';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { HttpModule } from '@angular/http';
   ],
   providers: [
     AllpostsService,
-    AllrequestsService
+    AllrequestsService,
+    HeaderService,
+    CookieService 
   ],
   bootstrap: [AppComponent]
 })
