@@ -19,6 +19,7 @@ import { AllpostsComponent } from './allposts/allposts.component';
 import { AllrequestsComponent } from './allrequests/allrequests.component';
 
 import { AllpostsService } from './allposts/allposts.service';
+import { AllrequestsService } from './allrequests/allrequests.service';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
 
@@ -46,6 +47,7 @@ import { HttpModule } from '@angular/http';
   ],
   providers: [
     AllpostsService,
+    AllrequestsService
   ],
   bootstrap: [AppComponent]
 })

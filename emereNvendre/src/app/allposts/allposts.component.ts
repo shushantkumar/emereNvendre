@@ -31,15 +31,17 @@ export class AllpostsComponent implements OnInit {
   getAllPosts(){
     console.log("Something is going on!");
     this.allpostsService.getAllPosts().subscribe(
-      (res) =>{console.log(res.products);
+      (res) =>{
+          // console.log(res.products);
           let response = res.products;
+          this.allpostsdata = response;
           // let response=JSON.parse(res);
-          let x,y;
-          for (x in response){
-            var z = response[x];
-          for( y in z) {
-            console.log(z[y]);
-        }}
+        //   let x,y;
+        //   for (x in response){
+        //     var z = response[x];
+        //   for( y in z) {
+        //     console.log(z[y]);
+        // }}
           
         }, 
       (err) => console.log(err),
