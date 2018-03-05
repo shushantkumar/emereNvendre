@@ -22,6 +22,8 @@ import { AllpostsService } from './allposts/allposts.service';
 import { AllrequestsService } from './allrequests/allrequests.service';
 import {HeaderService} from './header/header.service';
 import { AboutService } from './dashboard/about/about.service';
+import {PostService} from './dashboard/post/post.service';
+import {RequestService} from './dashboard/request/request.service';
 
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
@@ -54,6 +56,8 @@ import { CookieService } from 'ngx-cookie-service';
     AllrequestsService,
     HeaderService,
     AboutService,
+    PostService,
+    RequestService,
     CookieService 
   ],
   bootstrap: [AppComponent]

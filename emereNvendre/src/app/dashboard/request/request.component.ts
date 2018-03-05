@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {Http,Response,RequestOptions,Headers} from '@angular/http';
+import { CookieService } from 'ngx-cookie-service';
+import {RequestService} from './request.service';
+import * as $ from 'jquery';
+import { parseCookieValue } from '@angular/common/src/cookie';
 
 @Component({
   selector: 'app-request',
@@ -7,9 +14,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private requestService:RequestService,
+    private cookieService: CookieService
+  ) { }
 
   ngOnInit() {
+  }
+
+  PostRequest(event){
+    event.preventDefault();
+    // console.log(event);
+    let name = event.target.elements[0].value;
+    let price = event.target.elements[1].value;
+    let description = event.target.elements[2].value;
+    let userID = this.cookieService.get('ENVuserID');
+
+    let data={
+      "name": name,
+      "price": price,
+      "description":description,
+      "userID":userID
+    };
+    // console.log(username,password);
+    
+    this.requestService.PostRequest(data)
+      .subscribe(
+        (response) => {
+        console.log(response);
+        
+       
+      
+      },
+      (err) => console.log(err),
+      () => console.log('done!')
+    );
+
   }
 
 }
