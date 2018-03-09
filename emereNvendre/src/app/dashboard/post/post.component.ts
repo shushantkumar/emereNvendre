@@ -31,15 +31,22 @@ export class PostComponent implements OnInit {
     let description = event.target.elements[2].value;
     let userID = this.cookieService.get('ENVuserID');
     let productImage = event.target.elements[3].value;
+    
+    // let formData: FormData = new FormData();
+    // formData.append('name', 'name'); 
+    // formData.append('price', 'price');
+    // formData.append('description', 'description');
+    // formData.append('productImage', productImage);
+    // formData.append('userID', 'userID');
 
-    let data={
-      "name": name,
-      "price": price,
-      "description":description,
-      "productImage":productImage,
-      "userID":userID
-    };
-    // console.log(username,password);
+     let data={
+       "name": name,
+       "price": price,
+       "description":description,
+       "productImage":productImage,
+       "userID":userID
+     };
+     //console.log(data);
     
     this.postService.PostProduct(data)
       .subscribe(

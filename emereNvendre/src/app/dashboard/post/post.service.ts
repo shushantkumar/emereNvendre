@@ -36,12 +36,11 @@ export class PostService {
     console.log(headers);
 
 
-    let fd = new FormData();
-    fd.append('name', 'value'); 
-    // let params = new URLSearchParams();
-    // for(var key in data){
-    //   params.set(key, data[key]);
-    // }
+  
+    let params = new URLSearchParams();
+    for(var key in data){
+      params.set(key, data[key]);
+    }
     console.log(data);
     return this.http.post(specificUrl,data,headers)
     .map(this.extractData)
