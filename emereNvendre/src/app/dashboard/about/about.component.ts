@@ -19,6 +19,8 @@ export class AboutComponent implements OnInit {
   userDetails;
   userProducts;
   userRequests;
+  // reload:Number=1;
+  
 
   constructor(
     private aboutService:AboutService,
@@ -27,6 +29,9 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.getUserDetails(); 
+    // if(this.reload==0){
+    //   window.location.reload();
+    // }
   }
   getUserDetails(){
     console.log("Something is going on!");

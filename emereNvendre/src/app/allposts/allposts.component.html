@@ -2,9 +2,21 @@
 <header>
   <div style="padding:20px;font-size:30px">ALL POSTED PRODUCTS FOR SALE</div>
 </header>
+<div class="container" style="padding:20px">
+    <!-- <div class="col-lg-3">
+      </i>
+    </div> -->
+    <div class="col-lg-1">
+      <i class="fas fa-search" style="font-size:25px;padding-right:-60px"></i>
+    </div>
+    <div class="col-lg-9">
+      <input id="search" class="form-control" type="text" placeholder="Search by any field..." [(ngModel)]="search" required>   
+    </div>
+</div>
 <div class="container" style="margin:10px">
 
-  <div *ngFor="let meta of allpostsdata;" class="col-lg-4 col-sm-4 col-md-4 col-xs-12" style="margin-top:10px">
+
+  <div *ngFor="let meta of allpostsdata | filter:search" class="col-lg-4 col-sm-4 col-md-4 col-xs-12" style="margin-top:10px">
     <div class="card" style="height:400px;padding:20px;">
         <a  target="_blank" href="https://agile-dawn-35104.herokuapp.com/{{meta.productImage}}" ><img class="card-img-top" src="https://agile-dawn-35104.herokuapp.com/{{meta.productImage}}" alt="Avatar" style="max-width:100%;max-height:25vh;padding-left:80px"></a>
         <div class="card-body">

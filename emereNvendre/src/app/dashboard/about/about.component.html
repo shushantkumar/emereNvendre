@@ -24,11 +24,16 @@
         <div class="card" style="padding:20px;margin:15px">
           <header style="font-size:25px;height:50px;padding:10px;font-family:'Comic Sans MS', cursive, sans-serif"><b>Products Posted</b></header>
           <a *ngFor="let prod of userProducts" style="margin:10px" href="http://localhost:4200/about">
+          
+            <div>
+              <img class="card-img-top" src="https://agile-dawn-35104.herokuapp.com/{{prod.productImage}}" alt="Avatar" style="max-width:100%;max-height:15vh;padding-left:50px">
+          </div>
           <div class="card1" style="padding:10px">
             <p class="x2" style="height:50px;padding:10px"><b style="font-size:20px;">Product: </b><i style="font-size:10px;color:black">{{prod.name}}</i></p>
             <p class="x3" style="height:50px;padding:10px"><b style="font-size:20px;">Price: </b><i style="font-size:10px;color:black">{{prod.price}}</i></p>
             <p class="x4" style="height:50px;padding:10px"><b style="font-size:20px;">Description: </b><i style="font-size:10px;color:black">{{prod.description}}</i></p>
           </div>
+         
           </a>
         </div>
     </div>

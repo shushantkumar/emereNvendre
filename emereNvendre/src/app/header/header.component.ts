@@ -19,7 +19,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private headerService:HeaderService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -53,6 +54,9 @@ export class HeaderComponent implements OnInit {
       (err) => console.log(err),
       () => console.log('done!')
     );
+    this.router.navigate(['about']);
+    console.log("went to about");
+   
 
   }
 
@@ -82,6 +86,9 @@ export class HeaderComponent implements OnInit {
       (err) => console.log(err),
       () => console.log('done!')
     );
+    this.router.navigate(['']);
+    console.log("went to about");
 
   }
+
 }
