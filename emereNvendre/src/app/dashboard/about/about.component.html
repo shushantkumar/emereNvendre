@@ -17,7 +17,15 @@
             <p style="font-family:Arial;padding:25px;font-size:20px"><b>Mail-Id:</b><i style="padding-left:10px;font-size:20px;color:#cc00ff">{{userDetails.emailID}}</i></p>
             <p style="font-family:Arial;padding:25px;font-size:20px"><b>Phone:</b><i style="padding-left:10px;font-size:20px;color:#cc00ff">{{userDetails.mobileNo}}</i></p>
           </div>
-        </div>
+      </div>
+      <div class="container" style="padding:20px">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="margin-left:30px;padding:10px" >
+              <button type="button" class="btn btn-primary" style="font-size:20px;font-family:'Comic Sans MS', cursive, sans-serif" (click)="gotoPost()">Post a Product</button>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="margin-left:30px;padding:10px">
+              <button type="button" class="btn btn-primary" style="font-size:20px;font-family:'Comic Sans MS', cursive, sans-serif" (click)="gotoReq()">Request a Product</button>
+          </div>
+      </div>
   </div>
   <div class="row" style="margin-bottom:20px">
     <div class="col-lg-6 col-sm-6" style="padding:20px;">

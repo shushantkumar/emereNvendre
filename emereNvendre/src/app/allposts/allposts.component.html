@@ -20,7 +20,7 @@
     <div class="card" style="height:400px;padding:20px;">
         <a  target="_blank" href="https://agile-dawn-35104.herokuapp.com/{{meta.productImage}}" ><img class="card-img-top" src="https://agile-dawn-35104.herokuapp.com/{{meta.productImage}}" alt="Avatar" style="max-width:100%;max-height:25vh;padding-left:80px"></a>
         <div class="card-body">
-          <h4 style="padding:10px"><b>Category</b></h4> 
+          <h4 style="padding:10px"><b>{{meta.category}}</b></h4> 
           <p><b>{{meta.name}}</b></p> 
           <p>Price {{meta.price}}</p> 
           <!-- <p>{{meta.description}}</p>  -->
@@ -31,19 +31,37 @@
 
 </div>
 <div class="modal fade" id="myDetails" role="dialog" style="margin-top:20px">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content" style="margin-top:300px">
-        <a  target="_blank" href="https://agile-dawn-35104.herokuapp.com/{{particular.productImage}}" ><img class="card-img-top" src="https://agile-dawn-35104.herokuapp.com/{{particular.productImage}}" alt="Avatar" style="max-width:100%;max-height:25vh;padding-left:80px"></a>
-        <div class="card-body">
-          <h4 style="padding:10px"><b>Category</b></h4> 
-          <p><b>{{particular.name}}</b></p> 
-          <p>Price {{particular.price}}</p> 
-          <p>{{particular.description}}</p> 
-          <!-- <a href="#" class="btn btn-primary">See Details</a> -->
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" style="margin-top:20px">
+        <div class="card-body" style="text-align:center">  
+        <a  target="_blank" href="https://agile-dawn-35104.herokuapp.com/{{particular.productImage}}" ><img class="card-img-top" src="https://agile-dawn-35104.herokuapp.com/{{particular.productImage}}" alt="Avatar" style="max-width:100%;max-height:50vh;"></a>
+        </div>  
+        <div class="card-body" style="padding:10px">
+            
+            <h4 style="padding:10px"><b>Category</b></h4> 
+            <div class="container">
+              <div class="col-lg-4">
+                <p><b>{{particular.name}}</b></p> 
+                <p>Price {{particular.price}}</p> 
+                
+              </div>
+              <div class="col-lg-6">
+                <p>Seller Name: <b>{{particular.user.name}}</b></p> 
+                <p>Seller EmailID: <b>{{particular.user.emailID}}</b></p>
+                <p>Seller Mobile: <b>{{particular.user.mobileNo}}</b></p>  
+                <p>Seller Address: <b>{{particular.user.address}}</b></p> 
+              </div>
+              <div class="col-lg-9" style="margin:20px">
+                  <p>{{particular.description}}</p>
+              </div>
+              
+          </div>
+
+            <!-- <a href="#" class="btn btn-primary">See Details</a> -->
         </div>
 
+      </div>
     </div>
-  </div>
 </div>
 
 <app-footer></app-footer>

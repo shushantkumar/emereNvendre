@@ -16,7 +16,8 @@ export class RequestComponent implements OnInit {
 
   constructor(
     private requestService:RequestService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -28,12 +29,14 @@ export class RequestComponent implements OnInit {
     let name = event.target.elements[0].value;
     let price = event.target.elements[1].value;
     let description = event.target.elements[2].value;
+    let category = event.target.elements[3].value;
     let userID = this.cookieService.get('ENVuserID');
 
     let data={
       "name": name,
       "price": price,
       "description":description,
+      "category":category,
       "userID":userID
     };
     // console.log(username,password);
@@ -49,6 +52,8 @@ export class RequestComponent implements OnInit {
       (err) => console.log(err),
       () => console.log('done!')
     );
+    this.router.navigate(['about']);
+    console.log("went to about");
 
   }
 

@@ -3,9 +3,11 @@ import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {Http,Response,RequestOptions,Headers} from '@angular/http';
 import { CookieService } from 'ngx-cookie-service';
+// import {Router} from '@angular/router';
 import {PostService} from './post.service';
 import * as $ from 'jquery';
 import { parseCookieValue } from '@angular/common/src/cookie';
+
 
 @Component({
   selector: 'app-post',
@@ -17,7 +19,8 @@ export class PostComponent implements OnInit {
 
   constructor(
     private postService:PostService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -35,6 +38,7 @@ export class PostComponent implements OnInit {
     let name = event.target.elements[0].value;
     let price = event.target.elements[1].value;
     let description = event.target.elements[2].value;
+    let category = event.target.elements[3].value;
     let userID = this.cookieService.get('ENVuserID');
     
     // let productImage = event.target.elements[3].value;
@@ -44,6 +48,7 @@ export class PostComponent implements OnInit {
     formData.append('name', name); 
     formData.append('price', price);
     formData.append('description', description);
+    formData.append('category', category);
     formData.append('productImage',this.selectedFile);
     // formData.append('productImage', productImage);
     formData.append('userID', userID);
@@ -68,7 +73,8 @@ export class PostComponent implements OnInit {
       (err) => console.log(err),
       () => console.log('done!')
     );
-
+    this.router.navigate(['about']);
+    console.log("went to about");
   }
 
 }
