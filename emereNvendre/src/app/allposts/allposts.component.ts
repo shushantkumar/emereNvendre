@@ -18,6 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
 export class AllpostsComponent implements OnInit {
  
   allpostsdata;
+  particular;
 
   constructor(
     private allpostsService:AllpostsService
@@ -48,6 +49,12 @@ export class AllpostsComponent implements OnInit {
       () => console.log('done!')
   );
 
+  }
+
+  gomodal(something){
+    console.log(something);
+    this.particular=something;
+    console.log(this.particular);
   }
 
 }

@@ -9,6 +9,7 @@ import { AboutComponent } from './dashboard/about/about.component';
 import { PostComponent } from './dashboard/post/post.component';
 import { RequestComponent } from './dashboard/request/request.component';
 import { AllrequestsComponent } from './allrequests/allrequests.component';
+import { TestryComponent } from './testry/testry.component'
 
 const routes: Routes = [
 
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'signin',
     component: SignInComponent
+  },
+  {
+    path: 'testry',
+    component: TestryComponent
   }
 ];
 

@@ -8,9 +8,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
-export class PostService {
-  private serverURL ='https://agile-dawn-35104.herokuapp.com';
-
+export class TestryService {
+  _baseURL: string = 'https://agile-dawn-35104.herokuapp.com'
   constructor(private http:HttpClient,private cookieService: CookieService) { }
 
   private extractData(res: Response) {
@@ -29,24 +28,15 @@ export class PostService {
     return Observable.throw(errMsg);
   }
 
+  upload(files){
+    // let headers = new Headers();
+    let headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/form-data','authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
+    // let options = new RequestOptions({ headers: headers });
+    // options.params = parameters;
+    return  this.http.post(this._baseURL + '/products/', files, headers)
+             .map(this.extractData)
+             .catch(this.handleError);
 
-  PostProduct(data){
-    let specificUrl = this.serverURL + '/products/';
-    let headers =  {headers: new  HttpHeaders({ 'authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
-    console.log(headers);
-
-
-  
-    // let params = new URLSearchParams();
-    // for(var key in data){
-    //   params.set(key, data[key]);
-    // }
-    console.log(data);
-    return this.http.post(specificUrl,data,headers)
-    .map(this.extractData)
-    .catch(this.handleError);
-
-  }
-  
+}
 
 }

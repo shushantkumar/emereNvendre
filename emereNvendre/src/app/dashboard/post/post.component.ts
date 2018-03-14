@@ -13,7 +13,7 @@ import { parseCookieValue } from '@angular/common/src/cookie';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  
+  selectedFile:File=null;
 
   constructor(
     private postService:PostService,
@@ -23,6 +23,12 @@ export class PostComponent implements OnInit {
   ngOnInit() {
   }
 
+  onFileSelected(event){
+    console.log(event);
+    this.selectedFile=<File>event.target.files[0];
+    (<HTMLInputElement> document.getElementById("afterselect")).innerHTML = "Uploaded";
+  }
+
   PostProduct(event){
     event.preventDefault();
     // console.log(event);
@@ -30,25 +36,28 @@ export class PostComponent implements OnInit {
     let price = event.target.elements[1].value;
     let description = event.target.elements[2].value;
     let userID = this.cookieService.get('ENVuserID');
-    let productImage = event.target.elements[3].value;
     
-    // let formData: FormData = new FormData();
-    // formData.append('name', 'name'); 
-    // formData.append('price', 'price');
-    // formData.append('description', 'description');
+    // let productImage = event.target.elements[3].value;
+    // console.log(productImage);
+    // 
+    let formData: FormData = new FormData();
+    formData.append('name', name); 
+    formData.append('price', price);
+    formData.append('description', description);
+    formData.append('productImage',this.selectedFile);
     // formData.append('productImage', productImage);
-    // formData.append('userID', 'userID');
+    formData.append('userID', userID);
 
-     let data={
-       "name": name,
-       "price": price,
-       "description":description,
-       "productImage":productImage,
-       "userID":userID
-     };
+    //  let data={
+    //    "name": name,
+    //    "price": price,
+    //    "description":description,
+    //    "productImage":productImage,
+    //    "userID":userID
+    //  };
      //console.log(data);
     
-    this.postService.PostProduct(data)
+    this.postService.PostProduct(formData)
       .subscribe(
         (response) => {
         console.log(response);

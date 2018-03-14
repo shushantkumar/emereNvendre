@@ -24,11 +24,13 @@ import {HeaderService} from './header/header.service';
 import { AboutService } from './dashboard/about/about.service';
 import {PostService} from './dashboard/post/post.service';
 import {RequestService} from './dashboard/request/request.service';
+import { TestryService } from './testry/testry.service';
 
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { HttpModule } from '@angular/http'; 
 import { CookieService } from 'ngx-cookie-service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { TestryComponent } from './testry/testry.component';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     RequestComponent,
     AllpostsComponent,
     AllrequestsComponent,
+    TestryComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AboutService,
     PostService,
     RequestService,
-    CookieService 
+    CookieService ,
+    TestryService
   ],
   bootstrap: [AppComponent]
 })

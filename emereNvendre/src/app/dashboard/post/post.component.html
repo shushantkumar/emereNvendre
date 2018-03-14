@@ -24,17 +24,20 @@
                             <input type="text" class="form-control">
                         </div>
                     </div>
-                    <div class="form-group" style="padding: 20px;">
+                    <div style="padding: 20px;">
                         <label class="col-sm-2 col-lg-2 col-md-2 control-label " style="padding-top:10px">Image Upload</label>
                         <div class="col-sm-10 col-lg-10 col-md-10">
                                 <!-- <input type="file" class="form-control" name="documents" (change)="onChange($event)" [(ngModel)]="stock.documents" #documents="ngModel" size="150"> -->
                             <label class="custom-file-upload">
-                                <input type="file" class="form-control" #fileInput/>
-                                <b>Click to select the Image</b>
+                                <input type="file" (change)="onFileSelected($event)">
+                                <b id="afterselect">Click to select the Image</b>
+                                
                             </label>
+                            
                         </div>
+                        
                     </div>
-
+                    
                     <div class="form-group" style="display: flex; align-content: center; justify-content: center; align-items: center; padding:40px;">
                         <div class="col-sm-offset-2 col-sm-10" style ="float:left">
                             <button class="btn btn-primary" style ="width:200px;">POST</button>
