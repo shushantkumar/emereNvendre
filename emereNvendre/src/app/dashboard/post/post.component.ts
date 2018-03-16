@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 // import {Router} from '@angular/router';
 import {PostService} from './post.service';
 import * as $ from 'jquery';
+
 import { parseCookieValue } from '@angular/common/src/cookie';
 
 
@@ -24,8 +25,9 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+   
   }
-
+  
   onFileSelected(event){
     console.log(event);
     this.selectedFile=<File>event.target.files[0];

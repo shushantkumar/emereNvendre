@@ -9,6 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 import {Http,Response,RequestOptions,Headers} from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
+import * as SendBird from 'SendBird';
+
 
 @Component({
   selector: 'app-about',
@@ -34,6 +36,9 @@ export class AboutComponent implements OnInit {
     // if(this.reload==0){
     //   window.location.reload();
     // }
+    //this.sendbird();
+    
+    
   }
   getUserDetails(){
     console.log("Something is going on!");
@@ -71,4 +76,12 @@ export class AboutComponent implements OnInit {
   
   gotoReq(){this.router.navigate(['request']);
   console.log("went to requests");}
+
+  // sendbird(){
+  //   let sb = new SendBird({'appId': '64319988-161A-4C10-B775-75D14EE4A7EE'});
+  //   let userID = this.cookieService.get('ENVuserID');
+  //   sb.connect(userID, function(user, error) {
+
+  //   });
+  // }
 }
