@@ -84,10 +84,13 @@ export class HeaderComponent implements OnInit {
       
       },
       (err) => console.log(err),
-      () => console.log('done!')
+      () => {
+        console.log('done!');
+        //this.router.navigate(['/']);
+        console.log("went to about");
+      }
     );
     this.router.navigate(['']);
-    console.log("went to about");
 
   }
 
