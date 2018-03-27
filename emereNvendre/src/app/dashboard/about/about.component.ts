@@ -22,7 +22,8 @@ export class AboutComponent implements OnInit {
   userDetails;
   userProducts;
   userRequests;
-  // reload:Number=1;
+  particular;
+
   
 
   constructor(
@@ -54,13 +55,6 @@ export class AboutComponent implements OnInit {
           response = res.order_List;
           this.userRequests = response;
 
-          // let response=JSON.parse(res);
-        //   let x,y;
-        //   for (x in response){
-        //     var z = response[x];
-        //   for( y in z) {
-        //     console.log(z[y]);
-        // }}
         console.log(this.userDetails,this.userProducts,this.userRequests);
           
         }, 
@@ -76,6 +70,127 @@ export class AboutComponent implements OnInit {
   
   gotoReq(){this.router.navigate(['request']);
   console.log("went to requests");}
+
+  updateUser(event){
+    let name = event.target.elements[0].value;
+    let address = event.target.elements[1].value;
+    let emailID = event.target.elements[2].value;
+    let mobileNo = event.target.elements[3].value;
+    // console.log(name);
+    // console.log(emailID);
+    // console.log(address);
+    // console.log(mobileNo);
+    let data={
+      "name":name,
+      "emailID": emailID,
+      "address":address,
+      "mobileNo":mobileNo
+    };
+
+    this.aboutService.updateUser(data).subscribe(
+      (response) => {
+        console.log(response);
+      
+      },
+      (err) => console.log(err),
+      () => {
+        console.log('done!');
+        //this.router.navigate(['/']);
+        console.log("went to about");
+      }
+    );
+    window.location.reload();
+
+  }
+
+  updatePost(prod){
+    console.log(prod);
+    this.particular=prod;
+  }
+
+  updateRequest(requ){
+    console.log(requ);
+    this.particular=requ;
+  }
+
+  updatePostItem(){
+    
+    let name = this.particular.name;
+    let price = this.particular.price;
+    let description = this.particular.description;
+    let category = this.particular.category;
+    let userID = this.cookieService.get('ENVuserID');
+
+    let data={
+      "name": name,
+      "price": price,
+      "description":description,
+      "category":category,
+      "userID":userID
+    };
+    console.log("here");
+    console.log(data);
+    window.location.reload();
+
+  }
+  deletePostItem(){
+    let name = this.particular.name;
+    let price = this.particular.price;
+    let description = this.particular.description;
+    let category = this.particular.category;
+    let userID = this.cookieService.get('ENVuserID');
+
+    let data={
+      "name": name,
+      "price": price,
+      "description":description,
+      "category":category,
+      "userID":userID
+    };
+    console.log("here");
+    console.log(data);
+    window.location.reload();
+    
+  }
+
+  updateRequestItem(){
+    let name = this.particular.name;
+    let price = this.particular.price;
+    let description = this.particular.description;
+    let category = this.particular.category;
+    let userID = this.cookieService.get('ENVuserID');
+
+    let data={
+      "name": name,
+      "price": price,
+      "description":description,
+      "category":category,
+      "userID":userID
+    };
+    console.log("here");
+    console.log(data);
+    window.location.reload();
+    
+  }
+  deleteRequestItem(){
+    let name = this.particular.name;
+    let price = this.particular.price;
+    let description = this.particular.description;
+    let category = this.particular.category;
+    let userID = this.cookieService.get('ENVuserID');
+
+    let data={
+      "name": name,
+      "price": price,
+      "description":description,
+      "category":category,
+      "userID":userID
+    };
+    console.log("here");
+    console.log(data);
+
+    window.location.reload();
+  }
 
   // sendbird(){
   //   let sb = new SendBird({'appId': '64319988-161A-4C10-B775-75D14EE4A7EE'});

@@ -44,4 +44,11 @@ export class AboutService {
     .catch(this.handleError);
   }
 
+  updateUser(data){
+    let specificUrl=this.serverURL+'/users/';
+    return this.http.get(specificUrl)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
 }

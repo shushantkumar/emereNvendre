@@ -13,12 +13,13 @@
 }
 
 .card1{
-    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.2);
+    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.3);
     transition: 0.2s;
     font-family:'Arial Black', Gadget, sans-serif!important;
 }
 .card1:hover {
-    box-shadow: 0 0 0 0 rgba(0,0,0,0.5);
+    box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.5);
+    cursor: pointer;
 }
 .x2 {
     border-left: 10px solid #9900cc;
