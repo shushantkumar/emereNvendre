@@ -99,6 +99,15 @@
                     </div>
                     <div class="form-group row" style="padding:10px 20px 10px 20px"> 
                         <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px">EmailID</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userEmail" type="text" class="form-control"  style="height: 40px;"  value={{userDetails.emailID}} disabled>
+                        </div>
+                            
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
                             <label class="control-label" style="font-size:17px">Name</label>
                         </div>
                         <div class="col-lg-6">
@@ -115,15 +124,7 @@
                         </div>
                             
                     </div>
-                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
-                        <div class="col-lg-3"> 
-                            <label class="control-label" style="font-size:17px">EmailID</label>
-                        </div>
-                        <div class="col-lg-6">
-                            <input id="userEmail" type="text" class="form-control"  style="height: 40px;"  value={{userDetails.emailID}}>
-                        </div>
-                            
-                    </div>
+
                     <div class="form-group row" style="padding:10px 20px 10px 20px"> 
                         <div class="col-lg-3"> 
                             <label class="control-label" style="font-size:17px">Mobile No</label>
@@ -154,7 +155,7 @@
                                 <label class="control-label" style="font-size:17px">Product Name</label>
                             </div>
                             <div class="col-lg-6">
-                                <input id="userName" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="particular.name" value={{particular.name}}>
+                                <input id="userName" type="text" class="form-control"  style="height: 40px;"  [(ngModel)]="name" value={{particular.name}}>
                             </div>
                             
                         </div>
@@ -163,7 +164,7 @@
                                 <label class="control-label" style="font-size:17px">Price</label>
                             </div>
                             <div class="col-lg-6">
-                                <input id="userAddress" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="particular.price" value={{particular.price}}>
+                                <input id="userAddress" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="price" value={{particular.price}}>
                             </div>
                                 
                         </div>
@@ -172,7 +173,7 @@
                                 <label class="control-label" style="font-size:17px">Category</label>
                             </div>
                             <div class="col-lg-6">
-                                <input id="userEmail" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="particular.category" value={{particular.category}}>
+                                <input id="userEmail" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="category" value={{particular.category}}>
                             </div>
                                 
                         </div>
@@ -181,18 +182,18 @@
                                 <label class="control-label" style="font-size:17px">Description</label>
                             </div>
                             <div class="col-lg-6">
-                                <input id="userMobile" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="particular.description" value={{particular.description}}>
+                                <input id="userMobile" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="description" value={{particular.description}}>
                             </div>
                                     
                         </div>
                         <button type="button" class="btn btn-primary" (click)="updatePostItem()"><i class="fas fa-check"></i><b style="padding-left:10px">Update</b></button>
                         <button type="button" class="btn btn-danger"  (click)="deletePostItem()"><i class="far fa-trash-alt"></i><b style="padding-left:10px">Delete</b></button>
                                 
-                    </div>
-                </div>
+                    </div> 
+                </div> 
             </div>
         </div>
-</div>
+</div> 
 
 <div class="modal fade" id="updateRequestItem" role="dialog" style="margin-top:20px">
         <div class="modal-dialog modal-lg">
@@ -208,7 +209,7 @@
                                 <label class="control-label" style="font-size:17px">Product Name</label>
                             </div>
                             <div class="col-lg-6">
-                                <input id="userName" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="particular.name" value={{particular.name}}>
+                                <input id="userName" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="name" value={{particular.name}}>
                             </div>
                             
                         </div>
@@ -217,7 +218,7 @@
                                 <label class="control-label" style="font-size:17px">Price</label>
                             </div>
                             <div class="col-lg-6">
-                                <input id="userAddress" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="particular.price" value={{particular.price}}>
+                                <input id="userAddress" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="price" value={{particular.price}}>
                             </div>
                                 
                         </div>
@@ -226,7 +227,7 @@
                                 <label class="control-label" style="font-size:17px">Category</label>
                             </div>
                             <div class="col-lg-6">
-                                <input id="userEmail" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="particular.category" value={{particular.category}}>
+                                <input id="userEmail" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="category" value={{particular.category}}>
                             </div>
                                 
                         </div>
@@ -235,7 +236,7 @@
                                 <label class="control-label" style="font-size:17px">Description</label>
                             </div>
                             <div class="col-lg-6">
-                                <input id="userMobile" type="text" class="form-control"  style="height: 40px;"  [(ngModel)]="particular.description" value={{particular.description}}>
+                                <input id="userMobile" type="text" class="form-control"  style="height: 40px;"  [(ngModel)]="description" value={{particular.description}}>
                             </div>
                                     
                         </div>

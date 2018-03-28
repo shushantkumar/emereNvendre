@@ -23,6 +23,11 @@ export class AboutComponent implements OnInit {
   userProducts;
   userRequests;
   particular;
+  name:String;
+  price:Number;
+  description:String;
+  category:String;
+  prodID:String;
 
   
 
@@ -61,7 +66,7 @@ export class AboutComponent implements OnInit {
       (err) => console.log(err),
       () => console.log('done!')
   );
-
+  // (<HTMLInputElement> document.getElementById("save")).disabled = false;
   }
   gotoPost()
 
@@ -72,22 +77,29 @@ export class AboutComponent implements OnInit {
   console.log("went to requests");}
 
   updateUser(event){
-    let name = event.target.elements[0].value;
-    let address = event.target.elements[1].value;
-    let emailID = event.target.elements[2].value;
+    let name = event.target.elements[1].value;
+    let address = event.target.elements[2].value;
+    //let emailID = event.target.elements[2].value;
     let mobileNo = event.target.elements[3].value;
+
+    // console.log(event.target.elements[0].value);
+    // console.log(event.target.elements[1].value);
+    // console.log(event.target.elements[2].value);
+    // console.log(event.target.elements[3].value);
+
+
     // console.log(name);
     // console.log(emailID);
     // console.log(address);
     // console.log(mobileNo);
-    let data={
-      "name":name,
-      "emailID": emailID,
-      "address":address,
-      "mobileNo":mobileNo
-    };
-
-    this.aboutService.updateUser(data).subscribe(
+    let userID = this.cookieService.get('ENVuserID');
+    let data=[
+      {"propName":"name","value":name},
+      {"propName":"address","value":address},
+      {"propName":"mobileNo","value":mobileNo}
+    ];
+    console.log(data);
+    this.aboutService.updateUser(data,userID).subscribe(
       (response) => {
         console.log(response);
       
@@ -96,100 +108,176 @@ export class AboutComponent implements OnInit {
       () => {
         console.log('done!');
         //this.router.navigate(['/']);
-        console.log("went to about");
       }
     );
-    window.location.reload();
+   
 
   }
 
   updatePost(prod){
     console.log(prod);
     this.particular=prod;
+    this.prodID=prod._id;
+    console.log(this.prodID);
   }
 
   updateRequest(requ){
     console.log(requ);
     this.particular=requ;
+    this.prodID=requ._id;
+    console.log(this.prodID);
   }
 
   updatePostItem(){
     
-    let name = this.particular.name;
-    let price = this.particular.price;
-    let description = this.particular.description;
-    let category = this.particular.category;
-    let userID = this.cookieService.get('ENVuserID');
+    let name = this.name;
+    let price = this.price;
+    let description = this.description;
+    let category = this.category;
+    if(typeof name=='undefined'){
+      name = this.particular.name;
+    }
+    if(typeof price=='undefined'){
+      price = this.particular.price;
+    }
+    if(typeof description=='undefined'){
+      description = this.particular.description;
+    }
+    if(typeof category=='undefined'){
+      category = this.particular.category;
+    }
+    // console.log(this.name);
+    // console.log(this.price);
+    // console.log(this.description);
+    // console.log(this.category);
+    // let userID = this.cookieService.get('ENVuserID');
+    let prodid = this.prodID;
 
-    let data={
-      "name": name,
-      "price": price,
-      "description":description,
-      "category":category,
-      "userID":userID
-    };
-    console.log("here");
+    let data=[
+      {"propName":"name","value":name},
+      {"propName":"price","value": price},
+      {"propName":"description","value":description},
+      {"propName":"category","value":category}
+      // "userID":userID
+    ];
     console.log(data);
-    window.location.reload();
+
+    this.aboutService.updatePostItem(data,prodid).subscribe(
+      (response) => {
+        console.log(response);
+      
+      },
+      (err) => console.log(err),
+      () => {
+        console.log('done!');
+      }
+    );
+
+
+    console.log("here");
+    // window.location.reload();
+    setTimeout(function(){
+
+      window.location.reload();
+    }, 2000);
 
   }
-  deletePostItem(){
-    let name = this.particular.name;
-    let price = this.particular.price;
-    let description = this.particular.description;
-    let category = this.particular.category;
-    let userID = this.cookieService.get('ENVuserID');
 
-    let data={
-      "name": name,
-      "price": price,
-      "description":description,
-      "category":category,
-      "userID":userID
-    };
+  deletePostItem(){
+    let prodid = this.prodID;
+
+    this.aboutService.deletePostItem(prodid).subscribe(
+      (response) => {
+        console.log(response);
+      
+      },
+      (err) => console.log(err),
+      () => {
+        console.log('done!');
+      }
+    );
+
     console.log("here");
-    console.log(data);
-    window.location.reload();
+    // console.log(data);
+    // window.location.reload();
+    // setTimeout(function(){
+
+    //   window.location.reload();
+    // }, 2000);
     
   }
 
   updateRequestItem(){
-    let name = this.particular.name;
-    let price = this.particular.price;
-    let description = this.particular.description;
-    let category = this.particular.category;
-    let userID = this.cookieService.get('ENVuserID');
+    let name = this.name;
+    let price = this.price;
+    let description = this.description;
+    let category = this.category;
+    if(typeof name=='undefined'){
+      name = this.particular.name;
+    }
+    if(typeof price=='undefined'){
+      price = this.particular.price;
+    }
+    if(typeof description=='undefined'){
+      description = this.particular.description;
+    }
+    if(typeof category=='undefined'){
+      category = this.particular.category;
+    }
 
-    let data={
-      "name": name,
-      "price": price,
-      "description":description,
-      "category":category,
-      "userID":userID
-    };
-    console.log("here");
+    let prodid = this.prodID;
+
+    let data=[
+      {"propName":"name","value":name},
+      {"propName":"price","value": price},
+      {"propName":"description","value":description},
+      {"propName":"category","value":category}
+      // "userID":userID
+    ];
     console.log(data);
-    window.location.reload();
+
+    this.aboutService.updateRequestItem(data,prodid).subscribe(
+      (response) => {
+        console.log(response);
+      
+      },
+      (err) => console.log(err),
+      () => {
+        console.log('done!');
+      }
+    );
+
+
+    console.log("here");
+    // window.location.reload();
+    setTimeout(function(){
+
+      window.location.reload();
+    }, 2000); 
+
     
   }
   deleteRequestItem(){
-    let name = this.particular.name;
-    let price = this.particular.price;
-    let description = this.particular.description;
-    let category = this.particular.category;
-    let userID = this.cookieService.get('ENVuserID');
+    let prodid = this.prodID;
 
-    let data={
-      "name": name,
-      "price": price,
-      "description":description,
-      "category":category,
-      "userID":userID
-    };
+    this.aboutService.deleteRequestItem(prodid).subscribe(
+      (response) => {
+        console.log(response);
+      
+      },
+      (err) => console.log(err),
+      () => {
+        console.log('done!');
+      }
+    );
+
     console.log("here");
-    console.log(data);
+    setTimeout(function(){
 
-    window.location.reload();
+      window.location.reload();
+    }, 2000);
+
+    // window.location.reload();
   }
 
   // sendbird(){

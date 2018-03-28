@@ -44,11 +44,53 @@ export class AboutService {
     .catch(this.handleError);
   }
 
-  updateUser(data){
-    let specificUrl=this.serverURL+'/users/';
-    return this.http.get(specificUrl)
+  updateUser(data,userID){
+    let specificUrl=this.serverURL+'/users/'+userID;
+    let headers =  {headers: new  HttpHeaders({ 'authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
+    return this.http.patch(specificUrl,data,headers)
     .map(this.extractData)
     .catch(this.handleError);
   }
+
+  deletePostItem(data){
+    let specificUrl = this.serverURL+'/products/'+data;
+    let headers =  {headers: new  HttpHeaders({ 'authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
+    console.log(specificUrl);
+    console.log(headers);
+    return this.http.delete(specificUrl,headers)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  deleteRequestItem(data){
+    let specificUrl = this.serverURL+'/orders/'+data;
+    let headers =  {headers: new  HttpHeaders({ 'authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
+    console.log(specificUrl);
+    console.log(headers);
+    return this.http.delete(specificUrl,headers)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  updatePostItem(data,prodid){
+    let specificUrl = this.serverURL+'/products/'+prodid;
+    let headers =  {headers: new  HttpHeaders({ 'authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
+    console.log(specificUrl);
+    console.log(data);
+    return this.http.patch(specificUrl,data,headers)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  updateRequestItem(data,prodid){
+    let specificUrl = this.serverURL+'/orders/'+prodid;
+    let headers =  {headers: new  HttpHeaders({ 'authorization':'Bearer '+this.cookieService.get('ENVtoken')})};
+    console.log(specificUrl);
+    console.log(data);
+    return this.http.patch(specificUrl,data,headers)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
 
 }

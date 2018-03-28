@@ -31,7 +31,7 @@ import { HttpModule } from '@angular/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TestryComponent } from './testry/testry.component';
-
+import {GoogleSignInComponent} from 'angular-google-signin';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,7 @@ import { TestryComponent } from './testry/testry.component';
     AllpostsComponent,
     AllrequestsComponent,
     TestryComponent,
+    GoogleSignInComponent
   ],
   imports: [
     BrowserModule,

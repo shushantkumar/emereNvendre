@@ -7,6 +7,8 @@ import {HeaderService} from './header.service';
 import * as $ from 'jquery';
 import { parseCookieValue } from '@angular/common/src/cookie';
 
+declare const gapi:any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,7 +18,6 @@ export class HeaderComponent implements OnInit {
   cookieENVuserID = '';
   cookieENVtoken = '';
 
-
   constructor(
     private headerService:HeaderService,
     private cookieService: CookieService,
@@ -24,7 +25,25 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // function onSignIn(googleUser) {
+    //   // Useful data for your client-side scripts:
+      
+    //   let profile = googleUser.getBasicProfile();
+    //   console.log(profile);
+    //   console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    //   console.log('Full Name: ' + profile.getName());
+    //   console.log('Given Name: ' + profile.getGivenName());
+    //   console.log('Family Name: ' + profile.getFamilyName());
+    //   console.log("Image URL: " + profile.getImageUrl());
+    //   console.log("Email: " + profile.getEmail());
+
+    //   // The ID token you need to pass to your backend:
+    //   var id_token = googleUser.getAuthResponse().id_token;
+    //   console.log("ID Token: " + id_token);
+    // };
   }
+  
+
 
   LoginEvent(event){
     event.preventDefault();
@@ -93,5 +112,26 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['']);
 
   }
+
+ googleSign(){  
+  console.log("Reached @ here"); 
+  function onSignIn(googleUser) {
+    // Useful data for your client-side scripts:
+    console.log("Reached atleast here");
+    
+    var profile = googleUser.getBasicProfile();
+    console.log(profile);
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token);
+  };}
+
 
 }
