@@ -18,7 +18,8 @@ declare const gapi:any;
 export class HeaderComponent implements OnInit {
   cookieENVuserID = '';
   cookieENVtoken = '';
-
+  public editedSignIn=true;
+  public editedSignOut=true;
   constructor(
     private headerService:HeaderService,
     private cookieService: CookieService,
@@ -26,12 +27,37 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let k = "";
+    
+    console.log(typeof this.cookieService.get('ENVuserID'));
+    console.log(this.cookieService.get('ENVuserID'));
+  if(this.cookieService.get('ENVuserID')!=k ){
+        console.log("first routing "+this.cookieService.get('ENVuserID')+this.editedSignOut);
+        this.editedSignIn=false;
+        this.editedSignOut=false;
+        // console.log(this.editedSignIn);
+        console.log(this.editedSignOut);
+        this.router.navigate(['about']);
+  }
+  else {
+   
+    setTimeout(function(){
+      this.router.navigate(['']);
+     
+    }, 1000);
+  }
+
 
   }
   
   private myClientId: string = '845484216154-2nuk8avekh8o02oqc9ct699dcgekvm16.apps.googleusercontent.com';
  
   onGoogleSignInSuccess(event: GoogleSignInSuccess) {
+    setTimeout(function(){
+
+     
+    }, 1000);
+
     let googleUser: gapi.auth2.GoogleUser = event.googleUser;
     let id: string = googleUser.getId();
     let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
@@ -70,7 +96,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['about']);
     console.log("went to about");
    
-
+  
   }
 
   LoginEvent(event){
@@ -100,8 +126,13 @@ export class HeaderComponent implements OnInit {
       (err) => console.log(err),
       () => console.log('done!')
     );
-    this.router.navigate(['about']);
+    setTimeout(function(){
+    // this.router.navigate(['about']);
+    window.location.reload();
     console.log("went to about");
+     
+    }, 1000);
+    
    
 
   }
@@ -136,10 +167,31 @@ export class HeaderComponent implements OnInit {
         console.log("went to about");
       }
     );
-    this.router.navigate(['']);
+    // this.router.navigate(['']);
+    window.location.reload();
 
   }
 
+  LogoutEvent(){
+    console.log("loggedout");
+    this.cookieService.delete('ENVuserID');
+    this.cookieService.delete('ENVtoken');
+    // let k = "";
+    this.router.navigate(['']);
+    
+    // if(this.cookieService.get('ENVuserID')!=k){{
+    //   console.log("loggedouting");
+      
+    // }
+    // setTimeout(function(){
+    //   console.log("loggedouting");
+    //   this.router.navigate(['/']);
+
+    //   // window.location.reload();
+
+    // }, 1000);
+
+  }
 //  googleSign(){  
 //   console.log("Reached @ here"); 
 //   function onSignIn(googleUser) {
