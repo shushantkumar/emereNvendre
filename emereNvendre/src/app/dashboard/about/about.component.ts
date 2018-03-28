@@ -82,10 +82,6 @@ export class AboutComponent implements OnInit {
     //let emailID = event.target.elements[2].value;
     let mobileNo = event.target.elements[3].value;
 
-    // console.log(event.target.elements[0].value);
-    // console.log(event.target.elements[1].value);
-    // console.log(event.target.elements[2].value);
-    // console.log(event.target.elements[3].value);
 
 
     // console.log(name);

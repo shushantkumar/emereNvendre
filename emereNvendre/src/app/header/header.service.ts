@@ -52,5 +52,14 @@ export class HeaderService {
     .catch(this.handleError);
   }
 
+  onGoogleSignInSuccess(data){
+    let specificUrl = this.serverURL + '/glogin/';
+    let headers =  {headers: new  HttpHeaders({ 'Content-Type': 'application/json'})};
+    console.log(data);
+
+    return this.http.post(specificUrl,data, headers)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
 
 }

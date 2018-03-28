@@ -53,7 +53,16 @@
                                 <div>
                                   <div style="color: #fff;font-size: 16px;font-weight:bold">OR SignIn With Google</div>
                                   <div style="font-size:20px">
-                                      <div class="g-signin2" data-onsuccess="onSignIn" (click)="googleSign()" style="padding-top:10px;width:150%;"></div>
+                                    
+                                    <google-signin
+                                    [clientId]="myClientId"
+                                    [width]="myWidth"
+                                    [theme]="myTheme"
+                                    [scope]="myScope"
+                                    [longTitle]="myLongTitle"
+                                    (googleSignInSuccess)="onGoogleSignInSuccess($event)">
+                                    </google-signin>
+                                      <!-- <div class="g-signin2" data-onsuccess="onSignIn" (click)="googleSign()" style="padding-top:10px;width:150%;"></div> -->
                                   </div>
                                 </div>
                               </div>                            
@@ -98,5 +107,6 @@
 </header>
 
 </div>
+
 
 
