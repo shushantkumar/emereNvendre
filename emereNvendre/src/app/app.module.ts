@@ -34,6 +34,7 @@ import { TestryComponent } from './testry/testry.component';
 import {GoogleSignInComponent} from 'angular-google-signin';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { JoinusComponent } from './joinus/joinus.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { JoinusComponent } from './joinus/joinus.component';
     TestryComponent,
     GoogleSignInComponent,
     AboutusComponent,
-    JoinusComponent
+    JoinusComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
