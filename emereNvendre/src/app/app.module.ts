@@ -33,6 +33,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TestryComponent } from './testry/testry.component';
 import {GoogleSignInComponent} from 'angular-google-signin';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { JoinusComponent } from './joinus/joinus.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     AllrequestsComponent,
     TestryComponent,
     GoogleSignInComponent,
-    AboutusComponent
+    AboutusComponent,
+    JoinusComponent
   ],
   imports: [
     BrowserModule,
