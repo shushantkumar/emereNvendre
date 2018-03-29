@@ -69,12 +69,22 @@ export class AboutComponent implements OnInit {
   // (<HTMLInputElement> document.getElementById("save")).disabled = false;
   }
   gotoPost()
-
-  {this.router.navigate(['post']);
-  console.log("went to posts");}
+  {
+    this.router.navigate(['post']);
+    setTimeout(function(){
+      console.log("went to allposts");
+      
+      window.location.reload();
+    }, 2000);
+   
+  }
   
-  gotoReq(){this.router.navigate(['request']);
-  console.log("went to requests");}
+  gotoReq(){
+    console.log("went to allrequests");
+    this.router.navigate(['request']);
+  
+
+}
 
   updateUser(event){
     let name = event.target.elements[1].value;
@@ -280,6 +290,7 @@ export class AboutComponent implements OnInit {
     // window.location.reload();
   }
 
+  
   // sendbird(){
   //   let sb = new SendBird({'appId': '64319988-161A-4C10-B775-75D14EE4A7EE'});
   //   let userID = this.cookieService.get('ENVuserID');

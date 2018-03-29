@@ -12,6 +12,7 @@ import { AllrequestsComponent } from './allrequests/allrequests.component';
 import { TestryComponent } from './testry/testry.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { JoinusComponent } from './joinus/joinus.component';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
 
@@ -62,7 +63,11 @@ const routes: Routes = [
   {
     path: 'joinus',
     component: JoinusComponent
-  }
+  },
+  {
+    path: 'faq',
+    component:FaqComponent
+  },
 ];
 
 @NgModule({
