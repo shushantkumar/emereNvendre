@@ -27,6 +27,10 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    //     gapi.load('auth2', function() {
+    //   gapi.auth2.init();
+    // });
     let k = "";
     
     console.log(typeof this.cookieService.get('ENVuserID'));
@@ -41,10 +45,10 @@ export class HeaderComponent implements OnInit {
   }
   else {
    
-    setTimeout(function(){
+      console.log("error here");
       this.router.navigate(['']);
      
-    }, 1000);
+    
   }
 
 
@@ -93,8 +97,12 @@ export class HeaderComponent implements OnInit {
       (err) => console.log(err),
       () => console.log('done!')
     );
-    this.router.navigate(['about']);
-    console.log("went to about");
+    setTimeout(function(){
+      // this.router.navigate(['about']);
+      window.location.reload();
+      console.log("went to about");
+       
+      }, 1000);
    
   
   }
@@ -131,7 +139,7 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
     console.log("went to about");
      
-    }, 1000);
+    }, 2000);
     
    
 
@@ -164,20 +172,39 @@ export class HeaderComponent implements OnInit {
       () => {
         console.log('done!');
         //this.router.navigate(['/']);
-        console.log("went to about");
+        // console.log("went to about");
       }
     );
     // this.router.navigate(['']);
-    window.location.reload();
+     setTimeout(function(){
+      console.log("registering done");
+      // this.router.navigate(['/']);
 
+      window.location.reload();
+
+    }, 2000);
   }
+
 
   LogoutEvent(){
     console.log("loggedout");
     this.cookieService.delete('ENVuserID');
     this.cookieService.delete('ENVtoken');
+    // let googleUser: gapi.auth2.GoogleUser = event.googleUser;
+
+    // let autho = gapi.auth2.getAuthInstance();
+    // autho.signOut();
+    // .then(function () {
+    //   console.log('User signed out.');
+    // });
+  //   gapi.auth2.signOut();
+  //   setTimeout(function(){
+  //   window.location.reload();
+  // }, 1500);
+
     // let k = "";
-    this.router.navigate(['']);
+    // window.location.reload();
+    this.router.navigate(['']);  //this one
     
     // if(this.cookieService.get('ENVuserID')!=k){{
     //   console.log("loggedouting");

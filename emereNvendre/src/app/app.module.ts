@@ -32,6 +32,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TestryComponent } from './testry/testry.component';
 import {GoogleSignInComponent} from 'angular-google-signin';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {GoogleSignInComponent} from 'angular-google-signin';
     AllpostsComponent,
     AllrequestsComponent,
     TestryComponent,
-    GoogleSignInComponent
+    GoogleSignInComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

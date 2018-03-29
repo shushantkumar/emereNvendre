@@ -16,6 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class AllrequestsComponent implements OnInit {
   allrequestsdata;
+  particular;
 
   constructor(private allrequestsService:AllrequestsService) { }
 
@@ -44,5 +45,12 @@ export class AllrequestsComponent implements OnInit {
   );
 
   }
+
+  gomodal(something){
+    console.log(something);
+    this.particular=something;
+    console.log(this.particular);
+  }
+
 
 }

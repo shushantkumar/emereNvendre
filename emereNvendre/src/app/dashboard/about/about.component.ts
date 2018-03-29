@@ -106,6 +106,10 @@ export class AboutComponent implements OnInit {
         //this.router.navigate(['/']);
       }
     );
+    setTimeout(function(){
+
+      window.location.reload();
+    }, 2000);
    
 
   }
@@ -196,10 +200,10 @@ export class AboutComponent implements OnInit {
     console.log("here");
     // console.log(data);
     // window.location.reload();
-    // setTimeout(function(){
+    setTimeout(function(){
 
-    //   window.location.reload();
-    // }, 2000);
+      window.location.reload();
+    }, 2000);
     
   }
 
