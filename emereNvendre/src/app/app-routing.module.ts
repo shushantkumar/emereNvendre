@@ -11,6 +11,7 @@ import { RequestComponent } from './dashboard/request/request.component';
 import { AllrequestsComponent } from './allrequests/allrequests.component';
 import { TestryComponent } from './testry/testry.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { JoinusComponent } from './joinus/joinus.component';
 
 const routes: Routes = [
 
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path: 'aboutus',
     component: AboutusComponent
+  },
+  {
+    path: 'joinus',
+    component: JoinusComponent
   }
 ];
 
