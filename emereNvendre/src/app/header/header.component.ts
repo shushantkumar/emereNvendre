@@ -117,6 +117,13 @@ export class HeaderComponent implements OnInit {
       "password": password
     };
 
+    if(username==""||password==""){
+      let x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      document.getElementById("snackbar").innerHTML ="Please enter the username and password !";
+    }
+    else {
     
     this.headerService.LoginEvent(data)
       .subscribe(
@@ -129,19 +136,35 @@ export class HeaderComponent implements OnInit {
         this.cookieENVtoken = this.cookieService.get('ENVtoken');
 
         console.log(this.cookieENVuserID,this.cookieENVtoken);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Login Successful !";
       
       },
-      (err) => console.log(err),
-      () => console.log('done!')
+      (err) =>{
+        
+        let x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      document.getElementById("snackbar").innerHTML ="Wrong username and password !";
+      },
+      () => {console.log('done!');
+
+    }
     );
+
+ 
     setTimeout(function(){
     // this.router.navigate(['about']);
+
+
     window.location.reload();
     console.log("went to about");
      
     }, 2000);
     
-   
+   }
 
   }
 
@@ -162,27 +185,46 @@ export class HeaderComponent implements OnInit {
     };
     console.log(name,emailID,address,mobileNo,password);
 
+    if(name==""||password==""||emailID==""||address==""||mobileNo==""){
+      let x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      document.getElementById("snackbar").innerHTML ="Please enter all the fields !";
+    }
+    else
+    {
     this.headerService.RegisterEvent(data)
       .subscribe(
         (response) => {
         console.log(response);
       
       },
-      (err) => console.log(err),
+      (err) => {console.log(err);
+      
+        
+      
+      },
       () => {
         console.log('done!');
         //this.router.navigate(['/']);
         // console.log("went to about");
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Register Unsuccessful, Try again later !";
       }
     );
     // this.router.navigate(['']);
      setTimeout(function(){
       console.log("registering done");
       // this.router.navigate(['/']);
-
+      let x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      document.getElementById("snackbar").innerHTML ="Register Successful, Kindly Login now !";
       window.location.reload();
 
-    }, 2000);
+    }, 2000);}
   }
 
 
@@ -190,6 +232,10 @@ export class HeaderComponent implements OnInit {
     console.log("loggedout");
     this.cookieService.delete('ENVuserID');
     this.cookieService.delete('ENVtoken');
+    let x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    document.getElementById("snackbar").innerHTML ="Successfuly logged out !";
     // let googleUser: gapi.auth2.GoogleUser = event.googleUser;
 
     // let autho = gapi.auth2.getAuthInstance();

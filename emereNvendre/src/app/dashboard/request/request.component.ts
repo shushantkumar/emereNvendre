@@ -41,19 +41,38 @@ export class RequestComponent implements OnInit {
     };
     // console.log(username,password);
     
+    if(name==""||price==""||description==""||category==""){
+      let x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      document.getElementById("snackbar").innerHTML ="Please enter all the fields !";
+    }
+    else
+    
+{
+
     this.requestService.PostRequest(data)
       .subscribe(
         (response) => {
         console.log(response);
-        
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Product Successfully Requested !";
        
       
       },
-      (err) => console.log(err),
+      (err) => {console.log(err);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Server Error, Please try again !";
+      },
+
       () => console.log('done!')
     );
     this.router.navigate(['about']);
-    console.log("went to about");
+    console.log("went to about");}
 
   }
 

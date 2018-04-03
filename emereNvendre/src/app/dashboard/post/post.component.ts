@@ -42,10 +42,18 @@ export class PostComponent implements OnInit {
     let description = event.target.elements[2].value;
     let category = event.target.elements[3].value;
     let userID = this.cookieService.get('ENVuserID');
+
+    if(name==""||price==""||description==""||category==""){
+      let x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      document.getElementById("snackbar").innerHTML ="Please enter all the fields !";
+    }
+    else
     
     // let productImage = event.target.elements[3].value;
     // console.log(productImage);
-    // 
+    {// 
     let formData: FormData = new FormData();
     formData.append('name', name); 
     formData.append('price', price);
@@ -68,15 +76,24 @@ export class PostComponent implements OnInit {
       .subscribe(
         (response) => {
         console.log(response);
-        
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Product Successfully Posted !";
        
       
       },
-      (err) => console.log(err),
+      (err) => {console.log(err);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Server Error, Please try again !";
+      
+      },
       () => console.log('done!')
     );
     this.router.navigate(['about']);
     console.log("went to about");
   }
-
+}
 }

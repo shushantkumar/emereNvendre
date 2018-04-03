@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 import {Http,Response,RequestOptions,Headers} from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
-import * as SendBird from 'SendBird';
+
 
 
 @Component({
@@ -43,6 +43,7 @@ export class AboutComponent implements OnInit {
     //   window.location.reload();
     // }
     //this.sendbird();
+
     
     
   }
@@ -61,7 +62,10 @@ export class AboutComponent implements OnInit {
           this.userRequests = response;
 
         console.log(this.userDetails,this.userProducts,this.userRequests);
-          
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Welcome to Dashboard !";
         }, 
       (err) => console.log(err),
       () => console.log('done!')
@@ -108,9 +112,19 @@ export class AboutComponent implements OnInit {
     this.aboutService.updateUser(data,userID).subscribe(
       (response) => {
         console.log(response);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="User Details Updated !";
       
       },
-      (err) => console.log(err),
+      (err) => {console.log(err);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Server Error, Please try again !";
+      
+      },
       () => {
         console.log('done!');
         //this.router.navigate(['/']);
@@ -175,9 +189,18 @@ export class AboutComponent implements OnInit {
     this.aboutService.updatePostItem(data,prodid).subscribe(
       (response) => {
         console.log(response);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Item details updated !";
       
       },
-      (err) => console.log(err),
+      (err) =>{ console.log(err);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Server Error, Please try again !";
+      },
       () => {
         console.log('done!');
       }
@@ -199,9 +222,18 @@ export class AboutComponent implements OnInit {
     this.aboutService.deletePostItem(prodid).subscribe(
       (response) => {
         console.log(response);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Item deleted !";
       
       },
-      (err) => console.log(err),
+      (err) =>{ console.log(err);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Server Error, Please try again !";
+      },
       () => {
         console.log('done!');
       }
@@ -249,9 +281,18 @@ export class AboutComponent implements OnInit {
     this.aboutService.updateRequestItem(data,prodid).subscribe(
       (response) => {
         console.log(response);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Item details updated !";
       
       },
-      (err) => console.log(err),
+      (err) =>{ console.log(err);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Server Error, Please try again !";
+      },
       () => {
         console.log('done!');
       }
@@ -273,9 +314,18 @@ export class AboutComponent implements OnInit {
     this.aboutService.deleteRequestItem(prodid).subscribe(
       (response) => {
         console.log(response);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Item deleted !";
       
       },
-      (err) => console.log(err),
+      (err) =>{ console.log(err);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        document.getElementById("snackbar").innerHTML ="Server Error, Please try again !";
+      },
       () => {
         console.log('done!');
       }

@@ -28,6 +28,7 @@
     </div>
             <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog" style="margin-top:20px">
+              <b><div id="snackbar"></div></b>
               <div class="modal-dialog modal-lg">
                 <div class="modal-content signIn" style="margin-top:300px">
                     <img src="../../assets/avatar.png" class="avatar">
@@ -42,12 +43,12 @@
                                 <form (submit)="LoginEvent($event)">
                                   <div class="form-group">
                                     <label class="control-label" for="">Email address</label>
-                                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" style="height: 40px;">
+                                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" style="height: 40px;" required>
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                   </div>
                                   <div class="form-group">
                                     <label class="control-label" for="">Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" style="height: 40px;">
+                                    <input type="password" class="form-control" placeholder="Password" style="height: 40px;" required>
                                   </div>
                                   <button type="submit" class="btn btn-primary">Submit</button>
                                   <small class="form-text text-muted">Click <a data-toggle="tab" href="#menu1"> here</a> if not registered</small>
@@ -91,7 +92,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Mobile No </label>
-                                    <input type="text" class="form-control"  placeholder="Enter Mobile No">                                 
+                                    <input type="number" class="form-control"  placeholder="Enter Mobile No">                                 
                                 </div>
                                 <div class="form-group">
                                   <label class="control-label">Password</label>
