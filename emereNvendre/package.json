@@ -5,24 +5,33 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build"
   },
+
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.1.0",
+    "@angular/animations": "^5.2.7",
+    "@angular/cdk": "^5.2.3",
     "@angular/common": "^5.1.0",
     "@angular/compiler": "^5.1.0",
     "@angular/core": "^5.1.0",
     "@angular/forms": "^5.1.0",
     "@angular/http": "^5.1.0",
+    "@angular/material": "^5.2.3",
     "@angular/platform-browser": "^5.1.0",
     "@angular/platform-browser-dynamic": "^5.1.0",
     "@angular/router": "^5.1.0",
+    "@types/gapi.auth2": "0.0.47",
+    "angular-google-signin": "^0.1.5",
     "core-js": "^2.4.1",
+    "express": "^4.16.3",
     "mongodb": "^3.0.1",
+    "ng2-search-filter": "^0.4.7",
+    "ngx-cookie-service": "^1.0.10",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
@@ -32,6 +41,7 @@
     "@angular/language-service": "^5.1.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
+    "@types/jquery": "^3.3.0",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.8.0",
@@ -46,5 +56,9 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
-  }
+  },
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.7.1"
+}
 }

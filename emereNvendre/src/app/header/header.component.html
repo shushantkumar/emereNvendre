@@ -1,66 +1,116 @@
-<div>
+<div id="scroll-animate scroll-animate-main wrapper-parallax">
 <header class="row" style="margin-top:-40px;padding-top:0px">
   <div class="page-header" style="background-color:#2c2c2c">
 
-    <h1 style="padding-left:50px;padding-top:20px; color:#da3730">
+    <!-- <div class="container" style="padding-left:50px;padding-top:20px; color:#da3730">
 
       <img src="../assets/emereNvendre.svg" style="margin-top:-10px;position:relative;top:0;height:80px">
       <b style="padding-left:10px;"> emereNvendre </b>
       <small> NITK's Sharing Platform</small>
-      
-        <button class="btn btn-primary" style="float:right;margin-right:35px;margin-top:12px;padding:10px 20px 10px 20px;font-size:20px;font-family:" type="">Login</button>
-     
-    </h1>
+
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float:right;margin-right:35px;margin-top:12px;padding:10px 20px 10px 20px;font-size:20px;font-family:Montserrat" type="">Login</button>
+
+
+        
+    </div> -->
+
+    <div class="container">
+      <img class="col-lg-3 col-md-3 col-sm-6 col-xs-12 logo" src="../assets/emereNvendre.svg" align="left" style="position:relative;margin-left:-150px;margin-top:10px;max-height:100px">
+      <b class="col-lg-3 col-md-3 col-sm-6 col-xs-12 " align="center" style="color:#da3730;font-size:40px;padding-top:25px;margin-left:-50px;vertical-align: middle;">emereNvendre</b>
+      <small class="col-lg-3 col-md-3 col-sm-6 col-xs-12 " style="color: #a6a6a6;font-size:20px;padding-top:80px;margin-left:-50px" > NITK's Sharing Platform</small>
+      <div *ngIf="editedSignIn" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="float:right">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float:right;margin-left:400px;margin-top:30px;font-size:30px;font-family:'Comic Sans MS', cursive, sans-serif" type="">Login</button>
+      </div>
+      <div [hidden]="editedSignOut" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="float:right">
+          <button type="button" class="btn btn-primary" style="float:right;margin-left:400px;margin-top:30px;font-size:30px;font-family:'Comic Sans MS', cursive, sans-serif" (click)="LogoutEvent()">Logout</button>
+      </div>
+    </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog" style="margin-top:20px">
+              <b><div id="snackbar"></div></b>
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content signIn" style="margin-top:300px">
+                    <img src="../../assets/avatar.png" class="avatar">
+                    <ul class="nav nav-tabs">
+                        <li class="active col-lg-6" style="text-align:center;font-size:20px"><a data-toggle="tab" href="#home">Log In</a></li>
+                        <li class="col-lg-6" style="text-align:center;font-size:20px"><a data-toggle="tab" href="#menu1">Register</a></li>
+                    </ul>	
+                    
+                    <div class="tab-content">
+                      <div id="home" class="tab-pane fade in active">
+                              <div class="" style="margin-top:40px;padding:0px 20px 0px 20px">
+                                <form (submit)="LoginEvent($event)">
+                                  <div class="form-group">
+                                    <label class="control-label" for="">Email address</label>
+                                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" style="height: 40px;" required>
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="">Password</label>
+                                    <input type="password" class="form-control" placeholder="Password" style="height: 40px;" required>
+                                  </div>
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                  <small class="form-text text-muted">Click <a data-toggle="tab" href="#menu1"> here</a> if not registered</small>
+                                </form>
+                                <hr>
+                                <div>
+                                  <div style="color: #fff;font-size: 16px;font-weight:bold">OR SignIn With Google</div>
+                                  <div style="font-size:20px">
+                                    
+                                    <google-signin
+                                    [clientId]="myClientId"
+                                    [width]="myWidth"
+                                    [theme]="myTheme"
+                                    [scope]="myScope"
+                                    [longTitle]="myLongTitle"
+                                    (googleSignInSuccess)="onGoogleSignInSuccess($event)">
+                                    </google-signin>
+                                      <!-- <div class="g-signin2" data-onsuccess="onSignIn" (click)="googleSign()" style="padding-top:10px;width:150%;"></div> -->
+                                  </div>
+                                </div>
+                              </div>                            
+                      </div>
+  
+                  
+
+                      <div id="menu1" class="tab-pane fade">
+                          <div class="" style="margin:20px">
+                              <form (submit)="RegisterEvent($event)">
+                                <div class="form-group">
+                                    <label class="control-label">Name</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Address</label>
+                                    <input type="text" class="form-control"  placeholder="Enter Address">                                    
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Mobile No </label>
+                                    <input type="number" class="form-control"  placeholder="Enter Mobile No">                                 
+                                </div>
+                                <div class="form-group">
+                                  <label class="control-label">Password</label>
+                                  <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                              </form>
+                            </div>        
+                      </div>
+                      
+                    </div>
+                </div>
+              </div>
+            </div>
   </div>
 </header>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <div id="slider" class="carousel slide" data-ride="carousel">
-
-        <ol class="carousel-indicators">
-          <li data-target="#slider" data-slide-to="0" class="active"></li>
-          <li data-target="#slider" data-slide-to="1"></li>
-          <li data-target="#slider" data-slide-to="2"></li>
-          <li data-target="#slider" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox" style="max-height:400px">
-          <div class="item active" >
-            <img src="..\assets\pic01.jpg" alt="Pic1" style=" width:100%;"/>
-            <div class="carousel-caption">
-              <h1>Pic1</h1>
-            </div>
-          </div>
-          <div class="item">
-              <img src="..\assets\pic02.jpg" alt="Pic2" style=" width:100%;"/>
-              <div class="carousel-caption">
-                <h1>Pic2</h1>
-              </div>
-          </div>
-          <div class="item">
-              <img src="..\assets\pic03.jpg" alt="Pic3" style=" width:100%;"/>
-              <div class="carousel-caption">
-                <h1>Pic3</h1>
-              </div>
-          </div>
-          <div class="item">
-              <img src="..\assets\pic04.jpg" alt="Pic4" style=" width:100%;"/>
-              <div class="carousel-caption">
-                <h1>Pic4</h1>
-              </div>
-          </div>
-
-
-        </div>
-        <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        </a>
-        <a class="right carousel-control" href="#slider" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        </a>
-      </div>
-    </div>
-  </div>
 </div>
-</div>
+
+
+

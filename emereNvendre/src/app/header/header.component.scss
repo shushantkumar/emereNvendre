@@ -1,0 +1,56 @@
+.signIn{
+    width:500px;
+    height:500px;
+    background: #000;
+    color:#fff;
+    top:50%;
+    left:50%;
+    position:absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.avatar{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    position: absolute;
+    top: -80px;
+    left: 175px;
+}
+
+.logo{
+    border-radius: 50%;
+}
+
+.signIn label{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.signIn input{
+    width:100%;
+    // margin-bottom: ;
+}
+
+.signIn input[type="email"], input[type="password"], input[type="text"],input[type="number"]{
+    border: none;
+    border-bottom: 1px solid rgb(228, 53, 53);
+    background: transparent;
+    outline: none;
+    height: 20px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.signIn input[type="submit"]{
+    border: none!important;
+    outline: none!important;
+    height: 20px!important;
+    background: #337ab7!important;
+    color: #fff!important;
+    font-size: 18px!important;
+    border-radius: 20px!important;
+}

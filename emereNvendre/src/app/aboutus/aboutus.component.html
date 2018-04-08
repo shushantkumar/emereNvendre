@@ -1,0 +1,51 @@
+
+<div id="scroll-animate scroll-animate-main wrapper-parallax">
+  <header class="row" style="margin-top:-40px;padding-top:0px">
+    <div class="page-header" style="background-color:#2c2c2c">
+  
+  
+      <div class="container">
+        <img class="col-lg-3 col-md-3 col-sm-6 col-xs-12 logo" src="../assets/emereNvendre.svg" align="left" style="position:relative;margin-left:-150px;margin-top:10px;max-height:100px">
+        <b class="col-lg-3 col-md-3 col-sm-6 col-xs-12 " align="center" style="color:#da3730;font-size:40px;padding-top:25px;margin-left:-50px;vertical-align: middle;">emereNvendre</b>
+        <small class="col-lg-3 col-md-3 col-sm-6 col-xs-12 " style="color: #a6a6a6;font-size:20px;padding-top:80px;margin-left:-50px" > NITK's Sharing Platform</small>
+      </div>
+      </div>
+      </header>
+      </div>
+
+      <div class="container" style="margin:10px">
+        <div class="card" style="height:100%;padding:20px;">
+          <header>
+            <div style="padding:20px;font-size:30px">ABOUT US</div>
+          </header>
+          <div style="font-size:20px;padding:20px"><i>
+            Our software emereNvendre name derived from latin meaning “buy and sell” is a software that provides students, faculties and other members of NITK a common platform to buy and sell their own used or new products within the campus. The motivation behind the idea is simple that no other service exist catering this need. Buy and Sell within the campus will help in easy availability of items and will also help in reduce and reuse of items which is the most important factor required for sustainable development. In our software users will be able to post picture and details of the item they want to buy or sell. Anyone interested can contact the other.   
+            <br>
+            <br>
+            EmereNvendre will be intra NITK level marketplace where users view or post products. This project since has a lot of scope of iterative development, we will follow this model as our process model. 
+          </i>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="margin:10px">
+          <div class="card" style="height:100%;padding:20px;">
+            <header>
+              <div style="padding:20px;font-size:30px">FUTURE WORK</div>
+            </header>
+            <div style="font-size:20px;padding:20px"><i>
+                One of the major problem we can face in its implementation is that users may post fake products, which will simply take redundant space in our database and also be a problem for other users. It can reduce the appeal factor of the software. So for dealing with this problem we planned to build a classifier using Image Recognition and Machine Learning - Convolutional Neural Networks. 
+
+              <br>
+              <br>
+              In our software the products are classified into categories. So basically when a user posts a new item, before putting the product details in the database, we take the image of the product user posted and first process it to make it ready to feed it to machine learning classifier. Processing of image will involve first converting it to grayscale and making the alterations on size of the image. Then initially we train a large dataset to identify the object as per the categories we have already created. Then the trained data will be stored in our database. We will develop a classify_check code for classifying image as per our created categories. So the processed input image is fed into the classifier and we will get a prediction by our classify_check code. Then we will compare the classified category by this code and the category under which user posted the item. If both matches then we will proceed further storing it in to database and making the required changes. If that doesn’t match then we will simply reject the post and display an error message asking users to post a new image.
+              <br>
+              <br>
+              To implement the above idea we need to first categorize all the items and then collect a dataset of images of those items. We will then develop Convolutional Neural Network (CNN) in Python 3. The library we will be using for this will be Tensorflow and Scikit learn. Tensorflow provides us the tool to develop CNN with inbuilt functions. Scikit learn is a library for classifying the images. So the complete dataset of images will be fed into CNN developed in python. The trained CNN will be stored as a separate log file so we don’t need to train our data every time for any new requests. Then again we develop a classify_check file written in python which accesses the trained CNN and classify the product into its category. So the frontend framework we will be using is Angular 5. From frontend the image will be brought to backend. In backend we are using ExpressJs and NodeJs. The database we are using is MongoDB. The image brought to backend will be processed as explained in ‘solution approach’ section. The image is classified by the classify_check file. This will be returned to the frontend. The category that item was posted and the category the CNN returned will be compared and if it matches then posting item process is successful, otherwise rejected. These were the implementation details to implement a fake product classifier using Image Processing and Machine Learning - Convolutional Neural Networks.
+            </i>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+      <app-footer></app-footer>

@@ -1,0 +1,296 @@
+<app-header></app-header>
+
+<div class="container" style="padding:10px">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="margin:20px;padding:10px" >
+            <button type="button" class="btn btn-primary" style="font-size:30px;font-family:'Comic Sans MS', cursive, sans-serif" (click)="gotoPost()">All Products Posted</button>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " style="margin:20px;padding:10px">
+            <button type="button" class="btn btn-primary" style="font-size:30px;font-family:'Comic Sans MS', cursive, sans-serif" (click)="gotoReq()">All Products Requested</button>
+        </div>
+        </div>
+
+<div class="container">
+    
+  <!-- <div class="card">
+        <img class="col-lg-4 avatar" src="../../assets/avatar.png" alt="Avatar">
+
+  </div> -->
+  <div class="card row" style="height:100%;margin:20px;">
+      
+      <img class="card-img-top col-lg-4 col-md-4 col-sm-4 col-xs-12" src="../../assets/sherlock.jpg" alt="Avatar" style="width:match-parent;padding:20px">
+      <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+            <p style="font-family:Arial;padding:20px 5px 5px 5px;font-size:20px"><b>Name:</b><span style="font-size:20px;padding-left:20px;color:#cc00ff">{{userDetails.name}}</span></p>
+            <p style="font-family:Arial;padding:5px;font-size:20px"><b>Address:</b><i style="font-size:20px;color:#cc00ff"> {{userDetails.address}}</i></p>
+            <p style="font-family:Arial;padding:5px;font-size:20px"><b>EmailID:</b><i style="padding-left:10px;font-size:20px;color:#cc00ff">{{userDetails.emailID}}</i></p>
+            <p style="font-family:Arial;padding:5px;font-size:20px"><b>Phone:</b><i style="padding-left:10px;font-size:20px;color:#cc00ff">{{userDetails.mobileNo}}</i></p>
+        <!-- <div class="form-group" style="padding:20px">
+            <div>
+                <span ><i class="fas fa-info"> </i></span>
+                <input id="product_code" class="form-control " type="text" style="width: 50%" placeholder={{userDetails.name}} [(ngModel)]="product_code" required>         
+            </div>
+        </div> -->
+        <p style="font-family:Arial;padding:5px;font-size:20px">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edituser" style="font-size:15px" type=""><i class="fas fa-info"> </i><b  style="padding-left:10px">Edit Details</b></button>
+        </p>
+      </div>
+      <!-- <div class="col-lg-4">
+        <div style="margin:10px">
+          <p style="font-family:Arial;padding:25px;font-size:20px"><b>Name:</b><i style="font-size:25px;color:#cc00ff">{{userDetails.name}}</i></p>
+          <p style="font-family:Arial;padding:25px;font-size:20px"><b>Address:</b><i style="font-size:20px;color:#cc00ff"> {{userDetails.address}}</i></p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+          <div style="margin:15px">
+            <p style="font-family:Arial;padding:25px;font-size:20px"><b>Mail-Id:</b><i style="padding-left:10px;font-size:20px;color:#cc00ff">{{userDetails.emailID}}</i></p>
+            <p style="font-family:Arial;padding:25px;font-size:20px"><b>Phone:</b><i style="padding-left:10px;font-size:20px;color:#cc00ff">{{userDetails.mobileNo}}</i></p>
+          </div>
+      </div> -->
+</div>
+
+<div class="container" style="padding:20px;text-align:center">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 " style="margin-left:30px;padding:20px" >
+        <button type="button" class="btn btn-primary" style="font-size:20px;font-family:'Comic Sans MS', cursive, sans-serif" (click)="gotoPost()">Post a new Product</button>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 " style="margin-left:30px;padding:20px;height:80px">
+        <button type="button" class="btn btn-primary" style="font-size:20px;font-family:'Comic Sans MS', cursive, sans-serif" (click)="gotoReq()">Request a new Product</button>
+    </div>
+</div>
+
+<div class="container" style="margin-bottom:20px">
+    <div class="col-lg-6 col-sm-6" style="padding:20px;">
+        <div class="card" style="padding:20px;margin:15px">
+            <header style="font-size:25px;height:50px;padding:10px;font-family:'Comic Sans MS', cursive, sans-serif"><b>Products Posted</b></header>
+            <div class="card1" *ngFor="let prod of userProducts" style="margin:15px 10px 15px 10px">
+            
+            <div style="width:100%;height:100%;padding:5px">
+               <a target="_blank" href="https://agile-dawn-35104.herokuapp.com/{{prod.productImage}}"> <img class="card-img-top" src="https://agile-dawn-35104.herokuapp.com/{{prod.productImage}}" alt="Avatar" style="max-width:100%;max-height:15vh;padding-left:50px"></a>
+            </div>
+            <div style="padding:10px">
+            <p class="x2" style="height:50px;padding:10px;width:100%;height:100%"><b style="font-size:20px;">Product: </b><i style="font-size:13px;color:black">{{prod.name}}</i></p>
+            <p class="x3" style="height:50px;padding:10px;width:100%;height:100%"><b style="font-size:20px;">Price: </b><i style="font-size:13px;color:black">{{prod.price}}</i></p>
+            
+            </div>
+            <div style="padding:10px">
+            <p class="" style="height:50px;padding:10px;width:100%;height:100%">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updatePostItem" (click)="updatePost(prod)" style="font-size:15px" type=""><i class="fas fa-edit"></i><b  style="padding-left:10px">Update Item Details</b></button>
+            </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-6" style="padding:20px;">
+        <div class="card" style="padding:20px;margin:15px">
+                <header style="font-size:25px;height:50px;padding:10px;font-family:'Comic Sans MS', cursive, sans-serif"><b>Products Requested</b></header>
+                <div class="card1" *ngFor="let requ of userRequests" style="margin:15px 10px 15px 10px">
+            
+                <div style="padding:10px">
+                <p class="x2" style="height:50px;padding:10px;width:100%;height:100%"><b style="font-size:20px;">Product: </b><i style="font-size:13px;color:black">{{requ.name}}</i></p>
+                <p class="x3" style="height:50px;padding:10px;width:100%;height:100%"><b style="font-size:20px;">Price: </b><i style="font-size:13px;color:black">{{requ.price}}</i></p>
+                
+                </div>
+                <div style="padding:10px">
+                <p class="" style="height:50px;padding:10px;width:100%;height:100%">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateRequestItem" (click)="updateRequest(requ)" style="font-size:15px" type=""><i class="fas fa-edit"></i><b  style="padding-left:10px">Update Item Details</b></button>
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="modal fade" id="edituser" role="dialog" style="margin-top:20px">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="card-body container" style="text-align:center;height:100%;width:100%;padding:30px"> 
+                <form (submit)="updateUser($event)">
+                    <div class="col-lg-12" style="margin-bottom:25px">
+                        <b style="font-size:20px;">Update your details below</b>
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px">EmailID</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userEmail" type="text" class="form-control"  style="height: 40px;"  value={{userDetails.emailID}} disabled>
+                        </div>
+                            
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px">Name</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userName" type="text" class="form-control"  style="height: 40px;" value={{userDetails.name}}>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px">Address</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userAddress" type="text" class="form-control"  style="height: 40px;" value={{userDetails.address}}>
+                        </div>
+                            
+                    </div>
+
+                    <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                        <div class="col-lg-3"> 
+                            <label class="control-label" style="font-size:17px">Mobile No</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="userMobile" type="text" class="form-control"  style="height: 40px;"  value={{userDetails.mobileNo}}>
+                        </div>
+                                
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                            
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updatePostItem" role="dialog" style="margin-top:20px">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="card-body container" style="text-align:center;height:100%;width:100%;padding:30px"> 
+                    <div class="col-lg-12" style="margin-bottom:25px">
+                        <b style="font-size:20px;">Update Item details below</b>
+                    </div>
+                    <div>
+                        <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                            <div class="col-lg-3"> 
+                                <label class="control-label" style="font-size:17px">Product Name</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input id="userName" type="text" class="form-control"  style="height: 40px;"  [(ngModel)]="name" value={{particular.name}}>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                            <div class="col-lg-3"> 
+                                <label class="control-label" style="font-size:17px">Price</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input id="userAddress" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="price" value={{particular.price}}>
+                            </div>
+                                
+                        </div>
+                        <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                            <div class="col-lg-3"> 
+                                <label class="control-label" style="font-size:17px">Category</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input id="userEmail" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="category" value={{particular.category}}>
+                            </div>
+                                
+                        </div>
+                        <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                            <div class="col-lg-3"> 
+                                <label class="control-label" style="font-size:17px">Description</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input id="userMobile" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="description" value={{particular.description}}>
+                            </div>
+                                    
+                        </div>
+                        <button type="button" class="btn btn-primary" (click)="updatePostItem()"><i class="fas fa-check"></i><b style="padding-left:10px">Update</b></button>
+                        <button type="button" class="btn btn-danger"  (click)="deletePostItem()"><i class="far fa-trash-alt"></i><b style="padding-left:10px">Delete</b></button>
+                                
+                    </div> 
+                </div> 
+            </div>
+        </div>
+</div> 
+
+<div class="modal fade" id="updateRequestItem" role="dialog" style="margin-top:20px">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="card-body container" style="text-align:center;height:100%;width:100%;padding:30px"> 
+                    <div class="col-lg-12" style="margin-bottom:25px">
+                        <b style="font-size:20px;">Update Item details below</b>
+                    </div>
+
+                    <div>
+                        <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                            <div class="col-lg-3"> 
+                                <label class="control-label" style="font-size:17px">Product Name</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input id="userName" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="name" value={{particular.name}}>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                            <div class="col-lg-3"> 
+                                <label class="control-label" style="font-size:17px">Price</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input id="userAddress" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="price" value={{particular.price}}>
+                            </div>
+                                
+                        </div>
+                        <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                            <div class="col-lg-3"> 
+                                <label class="control-label" style="font-size:17px">Category</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input id="userEmail" type="text" class="form-control"  style="height: 40px;" [(ngModel)]="category" value={{particular.category}}>
+                            </div>
+                                
+                        </div>
+                        <div class="form-group row" style="padding:10px 20px 10px 20px"> 
+                            <div class="col-lg-3"> 
+                                <label class="control-label" style="font-size:17px">Description</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input id="userMobile" type="text" class="form-control"  style="height: 40px;"  [(ngModel)]="description" value={{particular.description}}>
+                            </div>
+                                    
+                        </div>
+                        <button type="button" class="btn btn-primary"  (click)="updateRequestItem()"><i class="fas fa-check"></i><b style="padding-left:10px">Update</b></button>
+                        <button type="button" class="btn btn-danger"  (click)="deleteRequestItem()"><i class="far fa-trash-alt"></i><b style="padding-left:10px">Delete</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<br>
+<app-footer></app-footer>
+
+  <!-- <script>
+    (function(t,a,l,k,j,s){
+    s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.getElementsByTagName('head')[0].appendChild(s);k=t.Promise;
+    t.Talk={ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l.push([f])},catch:function(){return k&&new k()},c:l}};
+    })(window,document,[]);
+  </script>
+  <div id="talkjs-container" style="width: calc(100% - 60px); margin: 30px; min-height: 150px"></div>
+  <script>
+    Talk.ready.then(function() {
+        var me = new Talk.User({
+            id: "12345",
+            name: "George Looney",
+            email: "george@looney.net",
+            photoUrl: "https://talkjs.com/docs/img/george.jpg",
+            welcomeMessage: "Hey there! How are you? :-)"
+        });
+        window.talkSession = new Talk.Session({
+            appId: "tO7lSz6K",
+            me: me
+        });
+        var other = new Talk.User({
+            id: "54321",
+            name: "Ronald Raygun",
+            email: "ronald@teflon.com",
+            photoUrl: "https://talkjs.com/docs/img/ronald.jpg",
+            welcomeMessage: "Hey, how can I help?"
+        });
+    
+        var conversation = talkSession.getOrStartConversation(other);
+        var inbox = talkSession.createInbox({selected: conversation});
+        inbox.mount(document.getElementById("talkjs-container"));
+    });
+    </script> -->
