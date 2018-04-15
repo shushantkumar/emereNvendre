@@ -9,9 +9,6 @@ import { CookieService } from 'ngx-cookie-service';
 import {Http,Response,RequestOptions,Headers} from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
-
-
-
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -348,4 +345,11 @@ export class AboutComponent implements OnInit {
 
   //   });
   // }
+    gotoAllPost()
+
+{this.router.navigate(['allposts']);
+console.log("went to allposts");}
+
+gotoAllReq(){this.router.navigate(['allrequests']);
+console.log("went to allrequests");}
 }
